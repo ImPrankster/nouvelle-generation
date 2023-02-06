@@ -1,91 +1,43 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Image from "next/image";
+import humanSittingPic from "../public/home/human-sitting.png";
+import humanStandingPic from "../public/home/human-standing.png";
+import { FaArrowDown } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="p-8 lg:px-16">
+      <article className="prose max-w-none lg:prose-xl">
+        <div className="h-8" />
+        <div className="flex flex-col items-center justify-center gap-x-16 lg:flex-row">
+          <h1 className="uppercase lg:max-w-lg">
+            Making Cosmetics Accessible to{" "}
+            <span className="text-primary">Everyone</span>
+          </h1>
+          <Image alt="" className="" src={humanSittingPic} width={500} />
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+        <div className="flex flex-col items-center justify-center gap-x-16 lg:flex-row">
+          <Image
+            alt=""
+            className="hidden lg:block"
+            src={humanStandingPic}
+            width={500}
+          />
+          <h1 className="text-end uppercase lg:max-w-lg">
+            A wiki & community for all things{" "}
+            <span className="text-primary">L&apos;Oreal</span>
+          </h1>
+          <Image
+            alt=""
+            className="lg:hidden"
+            src={humanStandingPic}
+            width={500}
+          />
         </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <div className="mt-8 mb-2 w-full text-center text-xl font-bold uppercase text-neutral">
+          Learn More
+        </div>
+        <FaArrowDown className="left-1/2 inline w-full animate-bounce text-2xl text-neutral" />
+      </article>
     </main>
-  )
+  );
 }
