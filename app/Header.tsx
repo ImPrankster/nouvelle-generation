@@ -1,4 +1,5 @@
 import { FaAngleDown, FaListUl } from "react-icons/fa";
+import HeaderLink from "./HeaderLink";
 
 const Header = () => {
   return (
@@ -15,7 +16,9 @@ const Header = () => {
               className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-primary p-2 font-bold uppercase text-primary-content shadow"
             >
               <li>
-                <a>Discover</a>
+                <HeaderLink href="/discover" className="ring-primary-content">
+                  Discover
+                </HeaderLink>
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">
@@ -33,16 +36,20 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <a className="btn-ghost btn hidden truncate text-xl sm:inline-flex">
+          <HeaderLink
+            href="/"
+            className="btn-ghost btn hidden truncate text-xl ring-primary-content sm:inline-flex"
+          >
             Nouvelle Génération
-          </a>
-          tio
+          </HeaderLink>
         </div>
         {/*Defines the behavior on large screens*/}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-bold uppercase">
             <li>
-              <a>Discover</a>
+              <HeaderLink href="/discover" className="ring-primary-content">
+                Discover
+              </HeaderLink>
             </li>
             <li tabIndex={0}>
               <a>
