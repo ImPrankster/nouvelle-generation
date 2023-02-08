@@ -33,10 +33,10 @@ export default function Home() {
             width={500}
           />
         </div>
-        <div className="mt-8 mb-2 w-full text-center text-xl font-bold uppercase text-neutral">
+        <div className="mt-8 mb-2 w-full text-center text-xl font-bold uppercase">
           Learn More
         </div>
-        <FaArrowDown className="left-1/2 inline w-full animate-bounce text-2xl text-neutral" />
+        <FaArrowDown className="left-1/2 inline w-full animate-bounce text-2xl" />
       </article>
     </main>
   );

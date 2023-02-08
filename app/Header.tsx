@@ -1,9 +1,25 @@
 import { FaAngleDown, FaListUl } from "react-icons/fa";
 import HeaderLink from "./HeaderLink";
 
+import { Categories } from "@/api/schemas/categorySchema";
+
+const ListCategories = (CategoriesList: typeof Categories) => {
+  return (
+    <ul className="rounded-box bg-base-200 p-2 text-base-content ring-2 ring-primary">
+      {CategoriesList.map((c, i) => (
+        <li key={i}>
+          <HeaderLink href={"/categories/" + c} className="ring-primary">
+            {c}
+          </HeaderLink>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 const Header = () => {
   return (
-    <header className="sticky top-0 left-0 p-2">
+    <header className="sticky top-0 left-0 z-50 p-2">
       <div className="navbar rounded-box bg-primary bg-opacity-70 text-primary-content backdrop-blur-md">
         <div className="navbar-start">
           {/*Defines the behavior on sm-md screens*/}
@@ -22,17 +38,10 @@ const Header = () => {
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">
-                  Search
+                  Find
                   <FaAngleDown />
                 </a>
-                <ul className="rounded-box bg-base-200 p-2 text-base-content">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                {ListCategories(Categories)}
               </li>
             </ul>
           </div>
@@ -53,16 +62,10 @@ const Header = () => {
             </li>
             <li tabIndex={0}>
               <a>
-                Search <FaAngleDown />
+                Find
+                <FaAngleDown />
               </a>
-              <ul className="rounded-box bg-base-200 p-2 text-base-content">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              {ListCategories(Categories)}
             </li>
           </ul>
         </div>

@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-base-200">
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -15,6 +15,7 @@ export default function RootLayout({
       <head />
       <body>
         <Header />
+        <nav></nav>
         {children}
       </body>
     </html>
