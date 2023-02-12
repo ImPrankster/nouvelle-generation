@@ -1,6 +1,8 @@
 import supabase from "@/api/supabase";
 import { notFound } from "next/navigation";
 
+export const revalidate = 360;
+
 type Prop = {
   params: {
     slug: string;

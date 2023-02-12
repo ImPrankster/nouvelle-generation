@@ -3,11 +3,7 @@ import { Categories, CategoriesType } from "@/api/schemas/categorySchema";
 import EntryInfoCard from "@/components/EntryInfoCard";
 import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
-  return Categories.map((c) => ({
-    slug: c,
-  }));
-}
+export const revalidate = 60;
 
 type Prop = {
   params: {
