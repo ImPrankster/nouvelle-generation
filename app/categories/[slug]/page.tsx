@@ -1,6 +1,7 @@
 import supabase from "@/api/supabase";
 import { Categories, CategoriesType } from "@/api/schemas/categorySchema";
 import EntryInfoCard from "@/components/EntryInfoCard";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   return Categories.map((c) => ({
@@ -15,7 +16,7 @@ type Prop = {
 };
 
 const CategoryPage = async ({ params }: Prop) => {
-  const { data, error } = await supabase
+  const { data: entries, error } = await supabase
     .from("entry")
     .select("name, description, tags, created_by")
     .eq("category", params.slug)
@@ -25,9 +26,13 @@ const CategoryPage = async ({ params }: Prop) => {
     throw error;
   }
 
+  if (entries.length < 1) {
+    notFound();
+  }
+
   return (
-    <div className="grid grid-cols-1 place-content-center justify-items-center gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 lg:px-16 ">
-      {data && data.map((d, i) => <EntryInfoCard data={d} key={i} />)}
+    <div className="grid grid-cols-1 place-content-center justify-items-center gap-4 md:grid-cols-2 lg:grid-cols-3 lg:px-16 ">
+      {entries && entries.map((d, i) => <EntryInfoCard data={d} key={i} />)}
     </div>
   );
 };

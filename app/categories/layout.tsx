@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
+import SearchBar from "./SearchBar";
 
 const CategoryLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <section>
-      <div>Layout</div>
-
+    <section className="p-4">
+      <SearchBar />
       {children}
     </section>
   );

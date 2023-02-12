@@ -5,7 +5,7 @@ import { Categories } from "@/api/schemas/categorySchema";
 
 const ListCategories = (CategoriesList: typeof Categories) => {
   return (
-    <ul className="rounded-box bg-base-200 p-2 text-base-content ring-2 ring-primary">
+    <ul className="rounded-box bg-base-100 p-2 text-base-content shadow-md">
       {CategoriesList.map((c, i) => (
         <li key={i}>
           <HeaderLink href={"/categories/" + c} className="ring-primary">
@@ -19,8 +19,8 @@ const ListCategories = (CategoriesList: typeof Categories) => {
 
 const Header = () => {
   return (
-    <header className="sticky top-0 left-0 z-50 p-2">
-      <div className="navbar rounded-box bg-primary bg-opacity-70 text-primary-content backdrop-blur-md">
+    <header className="sticky top-0 left-0 z-50">
+      <div className="navbar bg-primary bg-opacity-70 text-primary-content shadow-md backdrop-blur-md">
         <div className="navbar-start">
           {/*Defines the behavior on sm-md screens*/}
           <div className="dropdown">
@@ -47,7 +47,7 @@ const Header = () => {
           </div>
           <HeaderLink
             href="/"
-            className="btn-ghost btn hidden truncate text-xl ring-primary-content sm:inline-flex"
+            className="btn-ghost btn truncate text-xl ring-primary-content"
           >
             Nouvelle Génération
           </HeaderLink>

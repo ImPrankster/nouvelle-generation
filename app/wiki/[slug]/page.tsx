@@ -8,16 +8,26 @@ type Prop = {
 };
 
 const EntryPage = async ({ params }: Prop) => {
-  const { data, error } = await supabase
+  const { data: entries, error } = await supabase
     .from("entry")
     .select("*")
     .eq("name", params.slug);
 
-  if (data!) {
+  if (error) {
+    throw error;
+  }
+
+  if (entries?.length < 1) {
     notFound();
   }
 
-  return <div>Entry</div>;
+  if (entries.length > 1) {
+    throw new Error("Database error");
+  }
+
+  const entry = entries[0];
+
+  return <div>{entry.name}</div>;
 };
 
 export default EntryPage;
