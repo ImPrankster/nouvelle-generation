@@ -1,8 +1,12 @@
-import { createClient } from "@supabase/supabase-js";
-import { Database } from "./types/supabase";
+import "server-only";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_KEY!;
-const supabase = createClient<Database>(supabaseUrl, supabaseKey);
+import { headers, cookies } from "next/headers";
+import { createServerComponentSupabaseClient } from "@supabase/auth-helpers-nextjs";
 
-export default supabase;
+import type { Database } from "./types/supabase";
+
+export const createServerClient = () =>
+  createServerComponentSupabaseClient<Database>({
+    headers,
+    cookies,
+  });

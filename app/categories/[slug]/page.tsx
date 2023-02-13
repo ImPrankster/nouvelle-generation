@@ -1,21 +1,25 @@
-import supabase from "@/api/supabase";
-import { Categories, CategoriesType } from "@/api/schemas/categorySchema";
+import "server-only";
+
+import { createServerClient } from "@/api/supabase";
+import { CategoriesType } from "@/api/schemas/categorySchema";
 import EntryInfoCard from "@/components/EntryInfoCard";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
-type Prop = {
+const CategoryPage = async ({
+  params,
+}: {
   params: {
     slug: CategoriesType;
   };
-};
-
-const CategoryPage = async ({ params }: Prop) => {
+}) => {
+  const supabase = createServerClient();
   const { data: entries, error } = await supabase
     .from("entry")
     .select("name, description, tags, created_by")
     .eq("category", params.slug)
+    .order("name", { ascending: true })
     .range(0, 100);
 
   if (error) {

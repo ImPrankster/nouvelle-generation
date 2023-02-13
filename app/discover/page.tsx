@@ -1,5 +1,13 @@
+import "server-only";
+
+import AskAi from "./AskAi";
+
 const DiscoverPage = async () => {
-  return <div></div>;
+  return (
+    <div>
+      <AskAi />
+    </div>
+  );
 };
 
 export default DiscoverPage;

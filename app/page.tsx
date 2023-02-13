@@ -1,3 +1,5 @@
+import "server-only";
+
 import Image from "next/image";
 import humanSittingPic from "../public/home/human-sitting.png";
 import humanStandingPic from "../public/home/human-standing.png";

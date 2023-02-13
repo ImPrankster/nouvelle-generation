@@ -1,15 +1,16 @@
-import supabase from "@/api/supabase";
+import { createServerClient } from "@/api/supabase";
 import { notFound } from "next/navigation";
 
-export const revalidate = 360;
+export const revalidate = 0;
 
-type Prop = {
+const EntryPage = async ({
+  params,
+}: {
   params: {
     slug: string;
   };
-};
-
-const EntryPage = async ({ params }: Prop) => {
+}) => {
+  const supabase = createServerClient();
   const { data: entries, error } = await supabase
     .from("entry")
     .select("*")

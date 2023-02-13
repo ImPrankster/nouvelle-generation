@@ -1,11 +1,22 @@
 import "./globals.css";
 import Header from "./Header";
+import { createServerClient } from "@/api/supabase";
+import SupabaseListener from "@/components/SupabaseListener";
+import SupabaseProvider from "@/components/SupabaseProvider";
 
-export default function RootLayout({
+export const revalidate = 0;
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = createServerClient();
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
   return (
     <html lang="en" className="bg-base-200">
       {/*
@@ -14,8 +25,11 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <Header />
-        {children}
+        <SupabaseProvider>
+          <SupabaseListener serverAccessToken={session?.access_token} />
+          <Header />
+          {children}
+        </SupabaseProvider>
       </body>
     </html>
   );

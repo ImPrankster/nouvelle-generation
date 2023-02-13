@@ -43,6 +43,11 @@ const Header = () => {
                 </a>
                 {ListCategories(Categories)}
               </li>
+              <li>
+                <HeaderLink href="/create" className="ring-primary-content">
+                  Create
+                </HeaderLink>
+              </li>
             </ul>
           </div>
           <HeaderLink
@@ -67,10 +72,20 @@ const Header = () => {
               </a>
               {ListCategories(Categories)}
             </li>
+            <li>
+              <HeaderLink href="/create" className="ring-primary-content">
+                Create
+              </HeaderLink>
+            </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn-ghost btn">Account</a>
+          <HeaderLink
+            href="/account"
+            className="btn-ghost btn ring-primary-content"
+          >
+            Account
+          </HeaderLink>
         </div>
       </div>
     </header>
