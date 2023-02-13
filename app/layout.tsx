@@ -25,9 +25,9 @@ export default async function RootLayout({
       */}
       <head />
       <body>
+        <Header />
         <SupabaseProvider>
           <SupabaseListener serverAccessToken={session?.access_token} />
-          <Header />
           {children}
         </SupabaseProvider>
       </body>

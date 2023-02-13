@@ -5,6 +5,8 @@ import humanSittingPic from "../public/home/human-sitting.png";
 import humanStandingPic from "../public/home/human-standing.png";
 import { FaArrowDown } from "react-icons/fa";
 
+export const revalidate = 0;
+
 export default function Home() {
   return (
     <main className="p-8 lg:px-16">
