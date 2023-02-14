@@ -13,6 +13,7 @@ import { FormData } from "./page";
 import { Session, SupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/api/types/supabase";
 import { CgSpinner } from "react-icons/cg";
+import { MdClose } from "react-icons/md";
 
 export function EntryForm({
   handleSubmit,
@@ -90,8 +91,20 @@ export function EntryForm({
         <label className="label font-bold">Tags</label>
         <div className="mb-2 flex w-full overflow-x-auto">
           {getValues("tags")?.map((tag, index) => (
-            <p className="badge-secondary badge mr-1" key={index}>
+            <p
+              className="badge-secondary badge mr-1"
+              key={index}
+              onClick={() => {
+                const tags = getValues("tags");
+                tags &&
+                  setValue(
+                    "tags",
+                    tags.filter((t, i) => i !== index)
+                  );
+              }}
+            >
               {tag}
+              <MdClose className="ml-1 inline text-lg" />
             </p>
           ))}
         </div>
