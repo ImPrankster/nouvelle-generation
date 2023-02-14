@@ -1,8 +1,8 @@
 "use client";
 
+import SignInCard from "@/components/SignInCard";
 import { useSupabase } from "@/components/SupabaseProvider";
 import { Session } from "@supabase/auth-helpers-nextjs";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const AccountPage = () => {
@@ -19,33 +19,24 @@ const AccountPage = () => {
     });
   }, [supabase.auth]);
 
+  if (!session) return <SignInCard />;
+
   return (
     <div className="flex justify-center">
       <div className="card w-full max-w-md bg-base-100 font-bold shadow-xl">
         <div className="card-body">
-          {!session ? (
-            <>
-              <h2 className="card-title">You are not signed in!</h2>
-              <Link href="/account/login" className="btn-primary btn self-end">
-                Sign in
-              </Link>
-            </>
-          ) : (
-            <>
-              <h2 className="card-title">{session.user.email}</h2>
-              <button
-                className="btn-warning btn self-end"
-                onClick={async () => {
-                  const { error } = await supabase.auth.signOut();
-                  if (error) {
-                    throw error;
-                  }
-                }}
-              >
-                Sign out
-              </button>
-            </>
-          )}
+          <h2 className="card-title">{session.user.email}</h2>
+          <button
+            className="btn-warning btn self-end"
+            onClick={async () => {
+              const { error } = await supabase.auth.signOut();
+              if (error) {
+                throw error;
+              }
+            }}
+          >
+            Sign out
+          </button>
         </div>
       </div>
     </div>
