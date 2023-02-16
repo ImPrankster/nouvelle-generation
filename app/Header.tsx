@@ -1,7 +1,7 @@
 import { FaAngleDown, FaListUl } from "react-icons/fa";
 import HeaderLink from "./HeaderLink";
 
-import { Categories } from "@/api/schemas/categorySchema";
+import { Categories } from "@/utils/schemas/categorySchema";
 
 const ListCategories = (CategoriesList: typeof Categories) => {
   return (

@@ -1,4 +1,4 @@
-import { createServerClient } from "@/api/supabase";
+import { createServerClient } from "@/utils/supabase";
 import { notFound } from "next/navigation";
 
 export const revalidate = 0;

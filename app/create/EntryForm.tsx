@@ -11,7 +11,7 @@ import {
 import { useState } from "react";
 import { FormData } from "./page";
 import { Session, SupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "@/api/types/supabase";
+import { Database } from "@/utils/types/supabase";
 import { CgSpinner } from "react-icons/cg";
 import { MdClose } from "react-icons/md";
 

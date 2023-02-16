@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "./Header";
-import { createServerClient } from "@/api/supabase";
+import { createServerClient } from "@/utils/supabase";
 import SupabaseListener from "@/components/SupabaseListener";
 import SupabaseProvider from "@/components/SupabaseProvider";
 

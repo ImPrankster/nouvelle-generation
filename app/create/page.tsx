@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import type { CategoriesType } from "@/api/schemas/categorySchema";
+import type { CategoriesType } from "@/utils/schemas/categorySchema";
 import { useEffect, useState } from "react";
 import { Session } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
