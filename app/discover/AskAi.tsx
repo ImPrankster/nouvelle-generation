@@ -7,6 +7,8 @@ import SignInCard from "@/components/SignInCard";
 import { useForm } from "react-hook-form";
 import { AI_PROMPT_PREFIX } from "@/utils/const";
 
+import { ChatBox } from "./ChatBox";
+
 export interface FormData {
   text: string;
 }
@@ -38,47 +40,29 @@ const AskAi = () => {
   if (!session) return <SignInCard />;
 
   return (
-    <div className="rounded-box mb-4 space-y-4 border border-base-300 bg-base-100 p-4 text-primary-content">
+    <div className="rounded-box mb-4 space-y-4 border border-base-300 bg-base-100 p-4">
       <div className="ml-4 text-xl font-medium">Ask AI</div>
-      <div>
-        {conversation &&
-          conversation.map((item, index) => {
-            if (item.role) {
-              return (
-                <div className="chat chat-end" key={index}>
-                  <div className="chat-bubble">{item.text}</div>
-                </div>
-              );
-            }
-            if (!item.role) {
-              return (
-                <div className="chat chat-start" key={index}>
-                  <div className="chat-bubble chat-bubble-primary">
-                    {item.text}
-                  </div>
-                </div>
-              );
-            }
-          })}
-      </div>
+      <ChatBox conversation={conversation} />
       <form
         onSubmit={handleSubmit(async (data) => {
           reset();
           setConversation(conversation.concat({ text: data.text, role: true }));
-          fetch("/api/openai/" + AI_PROMPT_PREFIX + data.text).then((res) => {
-            if (res.ok) {
-              res.json().then((res) => {
-                setConversation(
-                  conversation.concat(
-                    { text: data.text, role: true },
-                    { text: res.text, role: false }
-                  )
-                );
-              });
-            } else {
-              setError("Something went wrong");
+          fetch("/api/openai/" + AI_PROMPT_PREFIX + data.text + "?").then(
+            (res) => {
+              if (res.ok) {
+                res.json().then((res) => {
+                  setConversation(
+                    conversation.concat(
+                      { text: data.text, role: true },
+                      { text: res.text, role: false }
+                    )
+                  );
+                });
+              } else {
+                setError("Something went wrong");
+              }
             }
-          });
+          );
         })}
         className="form-control w-full space-y-2"
       >

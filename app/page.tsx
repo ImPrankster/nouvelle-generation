@@ -3,6 +3,7 @@ import "server-only";
 import Image from "next/image";
 import humanSittingPic from "../public/home/human-sitting.png";
 import humanStandingPic from "../public/home/human-standing.png";
+import Icon from "../public/home/Icon.png";
 import { FaArrowDown } from "react-icons/fa";
 
 export const revalidate = 0;
@@ -10,8 +11,8 @@ export const revalidate = 0;
 export default function Home() {
   return (
     <main className="p-8 lg:px-16">
-      <article className="prose max-w-none lg:prose-xl">
-        <div className="h-8" />
+      <article className="prose flex max-w-none flex-col items-center lg:prose-xl">
+        <Image alt="" src={Icon} height={128} />
         <div className="flex flex-col items-center justify-center gap-x-16 lg:flex-row">
           <h1 className="uppercase lg:max-w-lg">
             Making Cosmetics Accessible to{" "}

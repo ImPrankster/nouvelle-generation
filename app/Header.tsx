@@ -1,26 +1,15 @@
 import { FaAngleDown, FaListUl } from "react-icons/fa";
-import HeaderLink from "./HeaderLink";
-
 import { Categories } from "@/utils/schemas/categorySchema";
-
-const ListCategories = (CategoriesList: typeof Categories) => {
-  return (
-    <ul className="rounded-box bg-base-100 p-2 text-base-content shadow-md">
-      {CategoriesList.map((c, i) => (
-        <li key={i}>
-          <HeaderLink href={"/categories/" + c} className="ring-primary">
-            {c}
-          </HeaderLink>
-        </li>
-      ))}
-    </ul>
-  );
-};
+import { ListCategories } from "./ListCategories";
+import HeaderLink from "./HeaderLink";
+import Image from "next/image";
+import Icon from "../public/Icon.svg";
+import { RiAccountPinCircleLine } from "react-icons/ri";
 
 const Header = () => {
   return (
     <header className="sticky top-0 left-0 z-50">
-      <div className="navbar bg-primary bg-opacity-70 text-primary-content shadow-md backdrop-blur-md">
+      <div className="animate-gradient-x navbar shadow-md">
         <div className="navbar-start">
           {/*Defines the behavior on sm-md screens*/}
           <div className="dropdown">
@@ -52,9 +41,9 @@ const Header = () => {
           </div>
           <HeaderLink
             href="/"
-            className="btn-ghost btn truncate text-xl ring-primary-content"
+            className="btn-ghost btn truncate text-xl ring-transparent"
           >
-            Nouvelle Génération
+            <Image src={Icon} alt="Icon" height={20} />
           </HeaderLink>
         </div>
         {/*Defines the behavior on large screens*/}
@@ -79,12 +68,13 @@ const Header = () => {
             </li>
           </ul>
         </div>
+
         <div className="navbar-end">
           <HeaderLink
             href="/account"
-            className="btn-ghost btn ring-primary-content"
+            className="btn-ghost btn-circle btn ring-primary-content"
           >
-            Account
+            <RiAccountPinCircleLine className="text-3xl" />
           </HeaderLink>
         </div>
       </div>
