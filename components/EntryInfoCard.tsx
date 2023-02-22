@@ -1,5 +1,4 @@
 import {
-  EntryInfoSchema,
   EntryInfoType,
 } from "@/utils/schemas/entryInfoSchema";
 import HeaderLink from "@/app/HeaderLink";

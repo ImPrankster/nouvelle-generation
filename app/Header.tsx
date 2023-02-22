@@ -18,7 +18,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-primary p-2 font-bold uppercase text-primary-content shadow"
+              className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 font-bold uppercase text-base-content shadow"
             >
               <li>
                 <HeaderLink href="/discover" className="ring-primary-content">

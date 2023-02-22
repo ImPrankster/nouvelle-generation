@@ -12,13 +12,12 @@ export default function Home() {
   return (
     <main className="p-8 lg:px-16">
       <article className="prose flex max-w-none flex-col items-center lg:prose-xl">
-        <Image alt="" src={Icon} height={128} />
+        <Image alt="" src={Icon} height={128} className="py-4" />
         <div className="flex flex-col items-center justify-center gap-x-16 lg:flex-row">
-          <h1 className="uppercase lg:max-w-lg">
-            Making Cosmetics Accessible to{" "}
-            <span className="text-primary">Everyone</span>
-          </h1>
-          <Image alt="" className="" src={humanSittingPic} width={500} />
+          <h2 className="uppercase lg:max-w-lg">
+            Making cosmetics easy to access for everyone
+          </h2>
+          <Image alt="" src={humanSittingPic} width={500} />
         </div>
         <div className="flex flex-col items-center justify-center gap-x-16 lg:flex-row">
           <Image
@@ -27,10 +26,9 @@ export default function Home() {
             src={humanStandingPic}
             width={500}
           />
-          <h1 className="text-end uppercase lg:max-w-lg">
-            A wiki & community for all things{" "}
-            <span className="text-primary">L&apos;Oreal</span>
-          </h1>
+          <h2 className="text-end uppercase lg:max-w-lg">
+            Revolutionize the beauty industry with frontier technology
+          </h2>
           <Image
             alt=""
             className="lg:hidden"
