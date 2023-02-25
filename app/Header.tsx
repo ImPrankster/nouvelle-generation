@@ -9,7 +9,7 @@ import { RiAccountPinCircleLine } from "react-icons/ri";
 const Header = () => {
   return (
     <header className="sticky top-0 left-0 z-50">
-      <div className="animate-gradient-x navbar shadow-md">
+      <div className="navbar bg-base-100 shadow-md">
         <div className="navbar-start">
           {/*Defines the behavior on sm-md screens*/}
           <div className="dropdown">
@@ -41,7 +41,7 @@ const Header = () => {
           </div>
           <HeaderLink
             href="/"
-            className="btn-ghost btn truncate text-xl ring-transparent"
+            className="animate-gradient-x btn-ghost btn truncate text-xl ring-transparent"
           >
             <Image src={Icon} alt="Icon" height={20} />
           </HeaderLink>
@@ -78,6 +78,10 @@ const Header = () => {
           </HeaderLink>
         </div>
       </div>
+      <span className="p-2 font-bold">
+        FOR INTERNAL USE ONLY. © 2023 The Nouvelle Génération Team. All rights
+        reserved.
+      </span>
     </header>
   );
 };

@@ -17,7 +17,7 @@ const AskAi = () => {
   const { supabase } = useSupabase();
   const [session, setSession] = useState<Session | null>(null);
   const [conversation, setConversation] = useState<
-    { text: string; role: boolean }[]
+    { text: string | null; role: boolean }[]
   >([]);
   const [error, setError] = useState<string | null>(null);
   const {
@@ -46,8 +46,13 @@ const AskAi = () => {
       <form
         onSubmit={handleSubmit(async (data) => {
           reset();
-          setConversation(conversation.concat({ text: data.text, role: true }));
-          fetch("/api/openai/" + AI_PROMPT_PREFIX + data.text + "?").then(
+          setConversation(
+            conversation.concat(
+              { text: data.text, role: true },
+              { text: null, role: true }
+            )
+          );
+          fetch("/api/openai/" + AI_PROMPT_PREFIX + data.text + ".").then(
             (res) => {
               if (res.ok) {
                 res.json().then((res) => {
