@@ -1,7 +1,7 @@
 import "server-only";
 
 import { createServerClient } from "@/utils/supabase";
-import { CategoriesType } from "@/utils/schemas/categorySchema";
+import { CategoriesType } from "@/utils/schemas/category";
 import EntryInfoCard from "@/components/EntryInfoCard";
 import { notFound } from "next/navigation";
 

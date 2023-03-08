@@ -1,5 +1,5 @@
 import { FaAngleDown, FaListUl } from "react-icons/fa";
-import { Categories } from "@/utils/schemas/categorySchema";
+import { Categories } from "@/utils/schemas/category";
 import { ListCategories } from "./ListCategories";
 import HeaderLink from "./HeaderLink";
 import Image from "next/image";
@@ -22,7 +22,7 @@ const Header = () => {
             >
               <li>
                 <HeaderLink href="/discover" className="ring-primary-content">
-                  Discover
+                  Disover
                 </HeaderLink>
               </li>
               <li tabIndex={0}>

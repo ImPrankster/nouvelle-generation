@@ -1,5 +1,5 @@
 import HeaderLink from "./HeaderLink";
-import { Categories } from "@/utils/schemas/categorySchema";
+import { Categories } from "@/utils/schemas/category";
 
 export const ListCategories = (CategoriesList: typeof Categories) => {
   return (

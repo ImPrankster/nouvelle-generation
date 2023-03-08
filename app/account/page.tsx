@@ -4,6 +4,7 @@ import SignInCard from "@/components/SignInCard";
 import { useSupabase } from "@/components/SupabaseProvider";
 import { Session } from "@supabase/auth-helpers-nextjs";
 import { useEffect, useState } from "react";
+import ProfileSetting from "./Profile";
 
 const AccountPage = () => {
   const { supabase } = useSupabase();
@@ -22,7 +23,7 @@ const AccountPage = () => {
   if (!session) return <SignInCard />;
 
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col items-center justify-center">
       <div className="card w-full max-w-md bg-base-100 font-bold shadow-xl">
         <div className="card-body">
           <h2 className="card-title">{session.user.email}</h2>
@@ -39,6 +40,7 @@ const AccountPage = () => {
           </button>
         </div>
       </div>
+      <ProfileSetting session={session} supabase={supabase} />
     </div>
   );
 };
