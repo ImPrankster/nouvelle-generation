@@ -1,6 +1,6 @@
 import {
   EntryInfoType,
-} from "@/utils/schemas/entryInfoSchema";
+} from "@/utils/schemas/entry";
 import HeaderLink from "@/app/HeaderLink";
 
 const EntryInfoCard = ({ data }: { data: EntryInfoType }) => {
