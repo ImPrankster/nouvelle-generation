@@ -18,7 +18,7 @@ export default async function RootLayout({
   } = await supabase.auth.getSession();
 
   return (
-    <html lang="en" className="bg-warm dark:bg-slate-800">
+    <html lang="en" className="bg-base-100" data-theme="cupcake">
       {/*
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
