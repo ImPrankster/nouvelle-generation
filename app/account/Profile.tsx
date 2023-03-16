@@ -3,9 +3,9 @@
 import { Session, SupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { useForm } from "react-hook-form";
 import {
+  healthCondition,
   profileSchema,
   profileType,
-  healthCondition,
   skinColor,
   skinType,
 } from "@/utils/schemas/profile";

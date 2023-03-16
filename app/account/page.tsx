@@ -40,7 +40,6 @@ const AccountPage = () => {
           </button>
         </div>
       </div>
-      <ProfileSetting session={session} supabase={supabase} />
     </div>
   );
 };
