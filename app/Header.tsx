@@ -22,7 +22,7 @@ const Header = () => {
             >
               <li>
                 <HeaderLink href="/discover" className="ring-primary-content">
-                  Disover
+                  Discover
                 </HeaderLink>
               </li>
               <li tabIndex={0}>
