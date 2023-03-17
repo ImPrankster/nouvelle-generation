@@ -3,7 +3,7 @@ import HeaderLink from "@/app/HeaderLink";
 
 const EntryInfoCard = ({ data }: { data: EntryInfoType }) => {
   return (
-    <div className="card w-full border-2 bg-base-100 shadow-xl">
+    <div className="card max-h-96 w-full border-2 bg-base-100 shadow-xl">
       <figure>
         {data.cover_image && <img src={data.cover_image} alt={data.name} />}
       </figure>
