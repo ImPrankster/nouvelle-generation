@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const Categories = [
   "makeup",
-  "cosmetics",
+  "skincare",
   "haircare",
   "perfume",
   "others",

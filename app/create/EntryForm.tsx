@@ -95,7 +95,7 @@ export function EntryForm({
           className="select-bordered select w-full"
         >
           <option value="makeup">Makeup</option>
-          <option value="cosmetics">Cosmetics</option>
+          <option value="skincare">Skincare</option>
           <option value="haircare">Haircare</option>
           <option value="perfume">Perfume</option>
           <option value="others">Others</option>
