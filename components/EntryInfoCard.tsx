@@ -1,26 +1,32 @@
-import {
-  EntryInfoType,
-} from "@/utils/schemas/entry";
+import { EntryInfoType } from "@/utils/schemas/entry";
 import HeaderLink from "@/app/HeaderLink";
 
 const EntryInfoCard = ({ data }: { data: EntryInfoType }) => {
   return (
-    <div className="card w-full bg-base-100 shadow-xl">
+    <div className="card w-full border-2 bg-base-100 shadow-xl">
+      <figure>
+        {data.cover_image && <img src={data.cover_image} alt={data.name} />}
+      </figure>
       <div className="card-body">
-        <h2 className="card-title">
+        <h2 className="card-title overflow-x-auto whitespace-nowrap">
           {data.name}
           <div className="flex w-full overflow-x-auto">
             {data.tags &&
               data.tags.map((t, i) => (
-                <div className="badge-secondary badge mr-1" key={i}>
+                <div
+                  className="badge-secondary badge mr-1 whitespace-nowrap"
+                  key={i}
+                >
                   {t}
                 </div>
               ))}
           </div>
         </h2>
-        <p>{data.description && data.description}</p>
+        <p className="h-24 overflow-y-hidden">
+          {data.description && data.description}
+        </p>
         <div className="card-actions justify-end">
-          <HeaderLink href={"/wiki/" + data.name} className="btn-primary btn">
+          <HeaderLink href={"/wiki/" + data.id} className="btn-primary btn">
             Learn more
           </HeaderLink>
         </div>

@@ -78,10 +78,6 @@ const Header = () => {
           </HeaderLink>
         </div>
       </div>
-      <span className="p-2 font-bold">
-        FOR INTERNAL USE ONLY. © 2023 The Nouvelle Génération Team. All rights
-        reserved.
-      </span>
     </header>
   );
 };

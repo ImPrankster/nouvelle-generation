@@ -72,6 +72,21 @@ export function EntryForm({
         <p className="text-error">{error.name?.message}</p>
       </div>
       <div className="mx-4">
+        <label className="label font-bold">Cover Image Link</label>
+        <input
+          className="input-bordered input w-full"
+          type={"text"}
+          {...register("cover_image", {
+            maxLength: {
+              value: 150,
+              message: "Please use a shorter link",
+            },
+          })}
+          placeholder="Provide a cover image link"
+        />
+        <p className="text-error">{error.cover_image?.message}</p>
+      </div>
+      <div className="mx-4">
         <label className="label font-bold">Category</label>
         <select
           {...register("category", {
@@ -155,6 +170,7 @@ export function EntryForm({
           {...register("content")}
           className="textarea-bordered textarea w-full"
           placeholder="Use markdown syntax"
+          rows={10}
         />
       </div>
       <button

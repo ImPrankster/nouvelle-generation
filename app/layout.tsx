@@ -29,6 +29,8 @@ export default async function RootLayout({
           <SupabaseListener serverAccessToken={session?.access_token} />
           {children}
         </SupabaseProvider>
+        {/* FOR INTERNAL USE ONLY. © 2023 The Nouvelle Génération Team. All rights */}
+        {/* reserved. */}
       </body>
     </html>
   );

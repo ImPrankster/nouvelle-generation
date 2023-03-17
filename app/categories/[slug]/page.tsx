@@ -17,7 +17,7 @@ const CategoryPage = async ({
   const supabase = createServerClient();
   const { data: entries, error } = await supabase
     .from("entry")
-    .select("name, description, tags, created_by")
+    .select("id, name, description, tags, created_by, cover_image")
     .eq("category", params.slug)
     .order("name", { ascending: true })
     .range(0, 100);

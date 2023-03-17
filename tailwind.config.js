@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,9 +11,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        warm: "#FFFFFB",
-        "warm-dark": "#2B303B",
+      fontFamily: {
+        sans: ["Questrial", ...defaultTheme.fontFamily.sans],
+        shout: ["Noto Serif Display"],
       },
     },
   },

@@ -16,6 +16,7 @@ export interface FormData {
   content?: string;
   description?: string | null;
   name: string;
+  cover_image?: string | null;
   tags?: string[] | null;
 }
 

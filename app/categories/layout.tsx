@@ -6,7 +6,7 @@ import SearchBar from "./SearchBar";
 const CategoryLayout = ({ children }: { children: ReactNode }) => {
   return (
     <section className="p-4">
-      <SearchBar />
+      {/* <SearchBar /> */}
       {children}
     </section>
   );
